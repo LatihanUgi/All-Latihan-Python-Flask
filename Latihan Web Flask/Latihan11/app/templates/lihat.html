@@ -1,0 +1,23 @@
+<!-- extend base layout -->
+{% extends "base.html" %}
+
+{% block content %}
+<h1>Lihat Data</h1>
+<table>
+	<tr>
+		<td>ID Admin</td>
+		<td>Nama Admin</td>
+		<td>Gambar</td>
+		<td>Aksi</td>
+	</tr>
+		{%for i in posts%}
+			<tr>
+				<td>{{i.id}}</td>
+				<td>{{i.nama}}</td>
+				<td><img src="temp/{{i.gambar}}"/></td>
+				<td><a href="/ubah/{{i.id}}">Ubah | 
+				<a href="/hapus/{{i.id}}">Hapus</td>
+			</tr>
+		{%endfor%}
+</table>
+{% endblock %}

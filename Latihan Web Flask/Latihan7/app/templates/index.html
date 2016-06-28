@@ -1,0 +1,11 @@
+{%extends "base.html"%}
+{%block content%}
+	<table>
+		{%for i in posts %}
+			<tr>
+				<td>{{i.id}}</td>
+				<td>{{i.nama}}</td>
+			</tr>
+		{%endfor%}
+	</table>
+{%endblock%}

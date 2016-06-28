@@ -1,0 +1,30 @@
+<!-- extend base layout -->
+{% extends "base.html" %}
+
+{% block content %}
+<h1>Sign Up</h1>
+<form action="" method="post" name="daftar">
+    {{ form.hidden_tag() }}
+    <p>
+        Masukan Username Anda:<br>
+		{{ form.username(size=80)}}
+		{% for error in form.username.errors %}
+			<span style="color: red;">[{(error)}]</span>
+		{% endfor %}
+		<br>
+		Masukan Password Anda:<br>
+		{{ form.password(size=10)}}
+		{% for error in form.password.errors %}
+			<span style="color: red;">[{(error)}]</span>
+		{% endfor %}<br>
+		Masukan E-mail Anda:<br>
+		{{ form.email(size=80)}}
+		{% for error in form.email.errors %}
+			<span style="color: red;">[{(error)}]</span>
+		{% endfor %}
+		<br>	
+    </p>
+    <p>{{ form.accept_tos }} Saya Setuju</p>
+    <p><input type="submit" value="Sign Up"></p>
+</form>
+{% endblock %}

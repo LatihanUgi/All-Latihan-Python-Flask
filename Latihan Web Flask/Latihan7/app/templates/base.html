@@ -1,0 +1,23 @@
+<html>
+  <head>
+    {% if title %}
+    <title>{{ title }} - microblog</title>
+    {% else %}
+    <title>Welcome to microblog</title>
+    {% endif %}
+  </head>
+  <body>
+    <div>
+	<a href="/index">Home</a>
+	<a href="/about">About</a>
+	<a href="/profile">Profile</a>
+	<a href="/json">Json</a>
+	</div>
+    <hr>
+    {% block content %}{% endblock %}
+	<hr>
+	<div>
+		<p>&copy 2016 Developer engine by: Python</p>
+	</div>
+  </body>
+</html>

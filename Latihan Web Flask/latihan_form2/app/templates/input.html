@@ -1,0 +1,42 @@
+{% extends "base.html" %} <!-- extend base layout -->
+{% block content %} <!-- isi -->
+<h1>{{aksi}} Data</h1>
+{% if aksi == "tambah" %}
+<form action="/tambah" method="post" name="tambah" enctype="multipart/form-data"> <!-- deklarasi form -->
+    <span style="color:green">{{ form.hidden_tag() }} </span>
+    <p>
+        Masukan Nama Admin :<br>
+			{{ form.nama(size=80) }} <!-- tampilkan username yang sudah diset di forms.py -->
+			{% for error in form.nama.errors %} <!-- Loop jika ada error pada form username -->
+			<span style="color: red;">[{{error}}]</span> <!-- tampilkan pesan error dalam warna merah -->
+			{% endfor %}
+		<br>Gambar : <br>
+             {{form.file()}}
+		<br>Kategori :
+        <select name="kategori">
+			{%for i in option%}
+				<option value="{{i.id}}">{{i.nama}}</option>
+			{%endfor%}
+		</select>
+		<br>Jenis Kelamin :
+		<input type="radio" value="Pria" name="jk">Pria
+		<input type="radio" value="Wanita" name="jk">Wanita
+    </p>
+    <p><input type="submit" value="{{aksi}} Data"></p>
+</form>
+{% else %}
+<form action="/ubah/{{id}}" method="post" name="ubah"> <!-- deklarasi form -->
+    <span style="color:green">{{ form.hidden_tag() }} </span>
+    <p>
+			Masukan Nama Admin :<br>
+			{%for i in posts%}
+				{{ form.nama(size=80,value=i.nama)}} <!-- tampilkan username yang sudah diset di forms.py -->
+				{% for error in form.nama.errors %} <!-- Loop jika ada error pada form username -->
+				<span style="color: red;">[{{error}}]</span> <!-- tampilkan pesan error dalam warna merah -->
+				{% endfor %}<br>
+			{% endfor %}
+    </p>
+    <p><input type="submit" value="{{aksi}} Data"></p>
+</form>
+{% endif %}
+{% endblock %} <!-- isi -->

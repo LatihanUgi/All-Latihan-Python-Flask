@@ -1,0 +1,25 @@
+<html>
+  <head>
+    {% if title %}
+    <title>{{ title }} - microblog</title>
+    {% else %}
+    <title>microblog</title>
+    {% endif %}
+  </head>
+  <body>
+    <div>
+		{% if session['nama'] %}
+		<a href="/tambah">Input</a>
+		<a href="/lihat">Lihat</a>
+		{%else%}
+		<a href="/login">Login</a>
+		{% endif %}
+		{% if session['nama'] %}
+			Selamat Datang {{session['nama']}} {{session['jk']}}
+			<a href="/logout">Logout</a>
+		{%endif%}
+	</div>
+    <hr>
+    {% block content %}{% endblock %}
+  </body>
+</html>

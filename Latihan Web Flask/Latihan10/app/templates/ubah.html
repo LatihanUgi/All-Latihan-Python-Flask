@@ -1,0 +1,14 @@
+{% extends "base.html" %} <!-- extend base layout -->
+{% block content %} <!-- isi -->
+<h1>{{ title }}</h1>
+<form action="/ubahproses" method="post" name="daftar"> <!-- deklarasi form -->
+    <p>
+        {{ title }} Nama Admin :<br>
+		{% for i in kirim %}
+		<input type="hidden" name="id" value="{{i.id}}" >
+		<input type="text" name="nama" value="{{i.nama}}" >
+		{% endfor %}
+    </p>
+    <p><input type="submit" value="Ubah Data"></p>
+</form>
+{% endblock %} <!-- isi -->

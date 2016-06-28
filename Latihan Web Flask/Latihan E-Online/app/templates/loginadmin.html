@@ -1,0 +1,22 @@
+{% extends "base.html" %} <!-- extend base layout -->
+{% block content %} <!-- isi -->
+<h1>{{ title }}</h1>
+<form action="/loginadmin" method="post" name="daftar"> <!-- deklarasi form -->
+    <span style="color:green">{{ form.hidden_tag() }} </span>
+    <p>
+        {{ title }}<br>
+        {{ form.nama(size=40) }}<!-- tampilkan username yang sudah diset di forms.py -->
+        {% for error in form.nama.errors %} <!-- Loop jika ada error pada form username -->
+          <span style="color:{{ form.nama(size=80) }}<!-- tampilkan username yang sudah diset di forms.py -->
+		 {% endfor %}<br><br>
+		{{ form.pswd(size=40) }}
+        {% for error in form.pswd.errors %} <!-- Loop jika ada error pada form username -->
+          <span style="color: red;">[{{error}}]</span> <!-- tampilkan pesan error dalam warna merah -->
+        {% endfor %}<br>
+		<!--<script>
+			alert ('{{ error }}');
+		</script>-->
+    </p>
+    <p><input type="submit" value="Login"></p>
+</form>
+{% endblock %} <!-- isi -->

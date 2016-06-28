@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% block content %}
+    <h1>Home</h1>
+	<table>
+	{% for i  in list %}
+		<tr>
+		<td>{{i.id}}</td>
+		<td>{{i.nama}}</td>
+		</tr>
+	{% endfor %}
+	</table>
+{% endblock %}

@@ -1,0 +1,14 @@
+{% extends "base.html" %} <!-- extend base layout -->
+{% block content %} <!-- isi -->
+<h1>Login</h1>
+<form action="/login" method="post" name="login" > <!-- deklarasi form -->
+    <span style="color:green">{{ form.hidden_tag() }} </span>
+    <p>
+        Username : </br>
+		<input type="text" name="username"/></br></br>
+        Password : </br>
+		<input type="password" name="password"/>
+    </p>
+    <p><input type="submit" value="{{aksi}} Data"></p>
+</form>
+{% endblock %} <!-- isi -->
